@@ -7,8 +7,10 @@
     <title>JR ARTES em Madeiras • Monte Carmelo MG</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- FONTE NOVA E MELHOR (Poppins + Playfair Display) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Poppins:wght@400;500;600&amp;display=swap');
          :root {
             --madeira: #3f2a1f;
             --dourado: #d4aa6d;
@@ -30,7 +32,7 @@
         }
         
         body {
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Poppins', system-ui, sans-serif;
             overflow-x: hidden !important;
         }
         
@@ -83,6 +85,12 @@
             max-width: 100% !important;
             width: 100% !important;
         }
+
+        /* CARROSSEL SLIDE */
+        #carouselSlides {
+            transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
         /* MELHORIA FORTE PARA MOBILE */
         
         @media (max-width: 640px) {
@@ -150,6 +158,32 @@
         </div>
     </section>
 
+    <!-- BARRA DE CONFIANÇA -->
+    <section class="py-8 bg-[#f5e8d3]">
+        <div class="container-fixo">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-10 text-center">
+                <div class="flex-1">
+                    <div class="inline-flex items-center gap-4 bg-white rounded-3xl px-8 py-5 shadow">
+                        <div class="text-6xl font-bold titulo-madeira text-[#3f2a1f]">+20</div>
+                        <div>
+                            <div class="text-2xl font-bold titulo-madeira text-[#3f2a1f]">ANOS</div>
+                            <div class="text-sm tracking-widest text-[#d4aa6d] font-medium">NO MERCADO</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <div class="inline-flex items-center gap-4 bg-white rounded-3xl px-8 py-5 shadow">
+                        <div class="text-6xl font-bold titulo-madeira text-[#3f2a1f]">1</div>
+                        <div>
+                            <div class="text-2xl font-bold titulo-madeira text-[#3f2a1f]">ANO</div>
+                            <div class="text-sm tracking-widest text-[#d4aa6d] font-medium">DE GARANTIA</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- PRODUTOS -->
     <section id="produtos" class="py-20 bg-white">
         <div class="container-fixo">
@@ -177,6 +211,51 @@
                 <div onclick="abrirWhatsApp('Quero orçamento de Cavalinho de Madeira')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
                     <h3 class="text-4xl font-bold titulo-madeira">CAVALINHO DE MADEIRA</h3>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA SLIDE (novo modelo - passa pros lados) -->
+    <section class="py-20 bg-[#f5e8d3]">
+        <div class="container-fixo">
+            <div class="text-center mb-12">
+                <span class="bg-[#3f2a1f] text-[#d4aa6d] text-xs tracking-widest font-bold px-6 py-2 rounded-full">ITENS À VENDA</span>
+                <h2 class="titulo-madeira text-5xl md:text-6xl font-bold mt-4">GALERIA DE IMAGENS</h2>
+            </div>
+
+            <div class="relative max-w-5xl mx-auto">
+                <!-- SETA ESQUERDA -->
+                <button onclick="prevSlide()" 
+                        class="absolute -left-6 top-1/2 -translate-y-1/2 bg-white shadow-2xl hover:bg-[#d4aa6d] hover:text-white text-[#3f2a1f] w-14 h-14 flex items-center justify-center rounded-2xl z-20 transition-all text-3xl">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <!-- CARROSSEL -->
+                <div class="overflow-hidden rounded-3xl shadow-2xl">
+                    <div id="carouselSlides" class="flex w-full">
+                        <!-- IMAGENS DO SLIDE -->
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFhLIj.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFj5Cl.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFj8ua.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFwCox.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFw7DJ.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFwpOg.md.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFNRgS.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFNipn.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFOxv1.md.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFOUZb.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFeIl2.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFeVHP.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFe4bn.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFetg2.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                    </div>
+                </div>
+
+                <!-- SETA DIREITA -->
+                <button onclick="nextSlide()" 
+                        class="absolute -right-6 top-1/2 -translate-y-1/2 bg-white shadow-2xl hover:bg-[#d4aa6d] hover:text-white text-[#3f2a1f] w-14 h-14 flex items-center justify-center rounded-2xl z-20 transition-all text-3xl">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -296,6 +375,20 @@
                 const mensagem = `Olá! Vim pelo chat do site JR ARTES e quero orçamento de ${produtoSelecionado}.`;
                 abrirWhatsApp(mensagem);
             }, 1400);
+        }
+
+        // === CARROSSEL SLIDE ===
+        let currentSlide = 0;
+        const totalSlides = 14;
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            document.getElementById('carouselSlides').style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            document.getElementById('carouselSlides').style.transform = `translateX(-${currentSlide * 100}%)`;
         }
 
         window.onload = () => {
