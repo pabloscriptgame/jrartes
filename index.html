@@ -85,13 +85,11 @@
             max-width: 100% !important;
             width: 100% !important;
         }
-
-        /* CARROSSEL SLIDE */
+        
+        
         #carouselSlides {
             transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        
-        /* MELHORIA FORTE PARA MOBILE */
         
         @media (max-width: 640px) {
             .hero {
@@ -143,13 +141,13 @@
                     OFERTA ESPECIAL
                 </div>
 
-                <div onclick="abrirWhatsApp('Quero a oferta dos Bancos Rústicos a partir de R$ 50,00!')" class="titulo-madeira text-5xl md:text-7xl font-bold leading-none cursor-pointer hover:text-[#d4aa6d] transition">
-                    BANCOS RÚSTICOS
+                <div onclick="abrirWhatsApp('Quero a oferta dos Bancos Rústicos a partir de R$ 49,90!')" class="titulo-madeira text-5xl md:text-7xl font-bold leading-none cursor-pointer hover:text-[#d4aa6d] transition">
+                    BANCOS RÚSTICOS499
                 </div>
 
-                <div onclick="abrirWhatsApp('Quero a oferta dos Bancos Rústicos a partir de R$ 50,00!')" class="text-5xl md:text-7xl font-bold text-[#d4aa6d] mt-3 cursor-pointer">
-                    A PARTIR DE R$ 50,00
-                </div>
+                <div onclick="abrirWhatsApp('Quero a oferta dos Bancos Rústicos a partir de R$ 49,90!')" class="text-5xl md:text-7xl font-bold text-[#d4aa6d] mt-3 cursor-pointer">
+                    A PARTIR DE R$ 49,90499
+                </div>499
 
                 <button onclick="abrirWhatsApp('Olá! Quero meu orçamento agora!')" class="mt-12 bg-[#d4aa6d] hover:bg-white hover:text-[#3f2a1f] text-[#3f2a1f] font-bold text-2xl px-12 py-6 rounded-3xl shadow-xl">
                     FAÇA SEU ORÇAMENTO
@@ -184,7 +182,7 @@
         </div>
     </section>
 
-    <!-- PRODUTOS -->
+    <!-- PRODUTOS + PREÇOS (SISTEMA DE VENDAS OTIMIZADO) -->
     <section id="produtos" class="py-20 bg-white">
         <div class="container-fixo">
             <div class="text-center mb-12">
@@ -192,24 +190,145 @@
                 <h2 class="titulo-madeira text-5xl md:text-6xl font-bold mt-4">Nossos Produtos em Madeira</h2>
             </div>
 
+            <!-- INFORMAÇÃO DE MADEIRA + ENTREGA -->
+            <div class="max-w-3xl mx-auto bg-[#3f2a1f] text-white p-8 rounded-3xl mb-12 text-center shadow-xl">
+                <p class="text-2xl font-medium">✅ <strong class="text-[#d4aa6d]">Madeira Pinho</strong> de alta qualidade</p>
+                <p class="mt-3 text-lg">Todos os preços abaixo são para <strong>Madeira Pinho</strong></p>
+                <p class="mt-4 text-xl font-bold">Na sua medida? Faça o orçamento agora!</p>
+                <p class="mt-6 text-[#d4aa6d] text-lg">Outros tipos de madeira → consulte via WhatsApp</p>
+                <p class="mt-8 text-2xl font-bold flex items-center justify-center gap-3">
+                    <span class="text-4xl">🚚</span> ENTREGAMOS EM TODO MONTE CARMELO - MG
+                </p>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div onclick="abrirWhatsApp('Quero orçamento de Mesas Normais')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
+                <!-- 1 -->
+                <div onclick="abrirWhatsApp('Quero orçamento de Mesas Normais - R$ 200,00 cada em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
                     <h3 class="text-4xl font-bold titulo-madeira">MESAS NORMAIS</h3>
+                    <div class="mt-8 pt-8 border-t border-white/30">
+                        <p class="text-5xl font-bold text-[#d4aa6d]">R$ 200,00</p>
+                        <p class="text-sm opacity-75 mt-1">unidade • sob medida</p>
+                    </div>
                 </div>
-                <div onclick="abrirWhatsApp('Quero orçamento de Mesas Dobráveis')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
+
+                <!-- 2 -->
+                <div onclick="abrirWhatsApp('Quero orçamento de Mesas Dobráveis - R$ 100,00 cada em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
                     <h3 class="text-4xl font-bold titulo-madeira">MESAS DOBRÁVEIS</h3>
+                    <div class="mt-8 pt-8 border-t border-white/30">
+                        <p class="text-5xl font-bold text-[#d4aa6d]">R$ 100,00</p>
+                        <p class="text-sm opacity-75 mt-1">unidade • sob medida</p>
+                    </div>
                 </div>
-                <div onclick="abrirWhatsApp('Quero orçamento de Cadeiras')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
+
+                <!-- 3 -->
+                <div onclick="abrirWhatsApp('Quero orçamento de Cadeiras - Normais R$90 ou Dobráveis R$75 em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
                     <h3 class="text-4xl font-bold titulo-madeira">CADEIRAS</h3>
+                    <div class="mt-8 pt-8 border-t border-white/30 grid grid-cols-2 gap-4 text-center">
+                        <div>
+                            <p class="text-3xl font-bold text-[#d4aa6d]">R$ 90,00</p>
+                            <p class="text-xs opacity-75">Normais</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-[#d4aa6d]">R$ 75,00</p>
+                            <p class="text-xs opacity-75">Dobráveis</p>
+                        </div>
+                    </div>
                 </div>
-                <div onclick="abrirWhatsApp('Quero orçamento de Bancos Rústicos')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
+
+                <!-- 4 -->
+                <div onclick="abrirWhatsApp('Quero orçamento de Bancos Rústicos - Pequeno R$40 / Médio R$50 / Alto R$80 em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
                     <h3 class="text-4xl font-bold titulo-madeira">BANCOS RÚSTICOS</h3>
+                    <div class="mt-8 pt-8 border-t border-white/30 grid grid-cols-3 gap-3 text-center text-sm">
+                        <div>
+                            <p class="font-bold text-[#d4aa6d]">R$ 40</p>
+                            <
+                            p class="opacity-75 text-xs">Pequeno</p>
+                            
+                        
+                        </div
+                            >
+                            
+                        
+                        <div>
+                            
+                            
+                        
+                            <p class="font-bold text-[#d4aa6d]">R$ 50</p>
+                            <p class="opacity-75 text-xs">Médio</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-[#d4aa6d]">R$ 80</p>
+                            <p class="opacity-75 text-xs">Alto</p>
+                        </div>
+                    </div>
                 </div>
-                <div onclick="abrirWhatsApp('Quero orçamento de Bancos de Jardim Suspensos')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
+
+                <!-- 5 -->
+                <div onclick="abrirWhatsApp('Quero orçamento de Bancos de Jardim Suspensos - Médio R$100 / Grande R$250 em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
                     <h3 class="text-4xl font-bold titulo-madeira">BANCOS DE JARDIM SUSPENSOS</h3>
+                    <div class="mt-8 pt-8 border-t border-white/30 grid grid-cols-2 gap-4 text-center">
+                        <div>
+                            <p class="text-3xl font-bold text-[#d4aa6d]">R$ 100,00</p>
+                            <p class="text-xs opacity-75">Médio</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-[#d4aa6d]">R$ 250,00</p>
+                            <p class="text-xs opacity-75">Grande</p>
+                        </div>
+                    </div>
                 </div>
-                <div onclick="abrirWhatsApp('Quero orçamento de Cavalinho de Madeira')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
+
+                <!-- 6 -->
+                <div onclick="abrirWhatsApp('Quero orçamento de Cavalinho de Madeira - R$ 130,00 em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
                     <h3 class="text-4xl font-bold titulo-madeira">CAVALINHO DE MADEIRA</h3>
+                    <div class="mt-8 pt-8 border-t border-white/30">
+                        <p class="text-5xl font-bold text-[#d4aa6d]">R$ 130,00</p>
+                        <p class="text-sm opacity-75 mt-1">unidade • sob medida</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PACOTES PROMOCIONAIS (SISTEMA DE VENDAS) -->
+            <div class="mt-20">
+                <div class="text-center mb-12">
+                    <span class="bg-[#d4aa6d] text-[#3f2a1f] px-8 py-3 rounded-3xl font-bold text-sm tracking-widest">PROMOÇÃO ESPECIAL</span>
+                    <h3 class="titulo-madeira text-5xl mt-4">Jogos Completos com Desconto</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div onclick="abrirWhatsApp('Quero o Jogo de mesa dobrável com 4 cadeiras dobráveis por apenas R$ 400,00 em Madeira Pinho!')" class="produto-card bg-gradient-to-br from-[#3f2a1f] to-[#2a1f15] text-white p-9 rounded-3xl cursor-pointer border-2 border-[#d4aa6d]">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-3xl font-bold titulo-madeira">JOGO DOBRÁVEL<br>4 CADEIRAS</h3>
+                            <div class="text-right">
+                                <p class="text-5xl font-bold text-[#d4aa6d]">R$ 400,00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div onclick="abrirWhatsApp('Quero o Jogo de mesa dobrável com 6 cadeiras dobráveis por apenas R$ 600,00 em Madeira Pinho!')" class="produto-card bg-gradient-to-br from-[#3f2a1f] to-[#2a1f15] text-white p-9 rounded-3xl cursor-pointer border-2 border-[#d4aa6d]">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-3xl font-bold titulo-madeira">JOGO DOBRÁVEL<br>6 CADEIRAS</h3>
+                            <div class="text-right">
+                                <p class="text-5xl font-bold text-[#d4aa6d]">R$ 600,00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div onclick="abrirWhatsApp('Quero o Jogo de mesa normal com 4 cadeiras por apenas R$ 420,00 em Madeira Pinho!')" class="produto-card bg-gradient-to-br from-[#3f2a1f] to-[#2a1f15] text-white p-9 rounded-3xl cursor-pointer border-2 border-[#d4aa6d]">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-3xl font-bold titulo-madeira">JOGO NORMAL<br>4 CADEIRAS</h3>
+                            <div class="text-right">
+                                <p class="text-5xl font-bold text-[#d4aa6d]">R$ 420,00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div onclick="abrirWhatsApp('Quero o Jogo de mesa normal com 6 cadeiras por apenas R$ 620,00 em Madeira Pinho!')" class="produto-card bg-gradient-to-br from-[#3f2a1f] to-[#2a1f15] text-white p-9 rounded-3xl cursor-pointer border-2 border-[#d4aa6d]">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-3xl font-bold titulo-madeira">JOGO NORMAL<br>6 CADEIRAS</h3>
+                            <div class="text-right">
+                                <p class="text-5xl font-bold text-[#d4aa6d]">R$ 620,00</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -218,15 +337,13 @@
     <!-- GALERIA SLIDE (novo modelo - passa pros lados) -->
     <section class="py-20 bg-[#f5e8d3]">
         <div class="container-fixo">
-            <div class="text-center mb-12">
-                <span class="bg-[#3f2a1f] text-[#d4aa6d] text-xs tracking-widest font-bold px-6 py-2 rounded-full">ITENS À VENDA</span>
+            <div class="text-center mb-12">lass="bg-[#3f2a1f] text-[#d4aa6d] text-xs tracking-widest font-bold px-6 py-2 rounded-full">ITENS À VENDA</span>
                 <h2 class="titulo-madeira text-5xl md:text-6xl font-bold mt-4">GALERIA DE IMAGENS</h2>
             </div>
 
             <div class="relative max-w-5xl mx-auto">
                 <!-- SETA ESQUERDA -->
-                <button onclick="prevSlide()" 
-                        class="absolute -left-6 top-1/2 -translate-y-1/2 bg-white shadow-2xl hover:bg-[#d4aa6d] hover:text-white text-[#3f2a1f] w-14 h-14 flex items-center justify-center rounded-2xl z-20 transition-all text-3xl">
+                <button onclick="prevSlide()" class="absolute -left-6 top-1/2 -translate-y-1/2 bg-white shadow-2xl hover:bg-[#d4aa6d] hover:text-white text-[#3f2a1f] w-14 h-14 flex items-center justify-center rounded-2xl z-20 transition-all text-3xl">
                     <i class="fas fa-chevron-left"></i>
                 </button>
 
@@ -246,14 +363,12 @@
                         <div class="flex-none w-full"><img src="https://iili.io/qqFOUZb.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
                         <div class="flex-none w-full"><img src="https://iili.io/qqFeIl2.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
                         <div class="flex-none w-full"><img src="https://iili.io/qqFeVHP.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
-                        <div class="flex-none w-full"><img src="https://iili.io/qqFe4bn.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
-                        <div class="flex-none w-full"><img src="https://iili.io/qqFetg2.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                        <div class="flex-none <div class="flex-none w-full"><img src="https://iili.io/qqFetg2.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
                     </div>
                 </div>
 
                 <!-- SETA DIREITA -->
-                <button onclick="nextSlide()" 
-                        class="absolute -right-6 top-1/2 -translate-y-1/2 bg-white shadow-2xl hover:bg-[#d4aa6d] hover:text-white text-[#3f2a1f] w-14 h-14 flex items-center justify-center rounded-2xl z-20 transition-all text-3xl">
+                <button onclick="nextSlide()" class="absolute -right-6 top-1/2 -translate-y-1/2 bg-white shadow-2xl hover:bg-[#d4aa6d] hover:text-white text-[#3f2a1f] w-14 h-14 flex items-center justify-center rounded-2xl z-20 transition-all text-3xl">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
@@ -321,6 +436,7 @@
     <footer class="bg-[#3f2a1f] text-white py-12 text-center">
         <p class="titulo-madeira text-2xl">JR ARTES em Madeiras</p>
         <p class="mt-2 text-sm opacity-75">Rua João Casado, 183 - Santo Agostinho • Monte Carmelo - MG</p>
+        <p class="mt-4 text-xs opacity-60">Entregamos em todo Monte Carmelo - MG • Madeira Pinho</p>
     </footer>
 
     <script>
@@ -398,6 +514,4 @@
     </script>
 </body>
 
-
 </html>
-
