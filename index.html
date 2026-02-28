@@ -1,75 +1,103 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>JR ARTES em Madeiras • Monte Carmelo MG</title>
+    
+    <!-- TAILWIND CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <!-- FONTE NOVA E MELHOR (Poppins + Playfair Display) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
+    
+    <!-- FONTE PREMIUM (Poppins + Playfair Display) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Poppins:wght@400;500;600&amp;display=swap');
-         :root {
+        :root {
             --madeira: #3f2a1f;
+            --madeira-escura: #2a1b14;
             --dourado: #d4aa6d;
+            --dourado-claro: #e6c594;
+            --fundo: #fdfaf5;
         }
         
-        html,
-        body {
+        html, body {
             margin: 0;
             padding: 0;
             max-width: 100vw;
             overflow-x: hidden !important;
             box-sizing: border-box;
-        }
-        
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
+            background-color: var(--fundo);
         }
         
         body {
             font-family: 'Poppins', system-ui, sans-serif;
-            overflow-x: hidden !important;
+            color: var(--madeira);
         }
         
         .titulo-madeira {
             font-family: 'Playfair Display', serif;
         }
         
+        /* HERO SECTION COM GRADIENTE PREMIUM */
         .hero {
-            background: linear-gradient(rgba(63, 42, 31, 0.85), rgba(63, 42, 31, 0.85)), url('https://iili.io/qq39dIs.png') center/cover no-repeat;
+            background: linear-gradient(to bottom, rgba(42, 27, 20, 0.9), rgba(63, 42, 31, 0.75)), url('https://iili.io/qq39dIs.png') center/cover no-repeat;
             min-height: 100vh;
             display: flex;
             align-items: center;
             width: 100%;
+            position: relative;
         }
         
+        /* EFEITOS DE CARTÃO E HOVER */
         .produto-card {
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .produto-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            transition: all 0.7s ease;
         }
         
         .produto-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 25px 50px -12px rgb(63 42 31 / 0.4);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px -15px rgba(63, 42, 31, 0.5);
+        }
+
+        .produto-card:hover::before {
+            left: 200%;
         }
         
+        /* ANIMAÇÕES DE REVELAÇÃO (SCROLL) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* CHAT MODAL E ANIMAÇÕES */
         .chat-modal {
-            animation: slideUp 0.4s ease;
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
         @keyframes slideUp {
-            from {
-                transform: translateY(100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(150px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
         
         .container-fixo {
@@ -77,106 +105,120 @@
             max-width: 1280px !important;
             margin-left: auto !important;
             margin-right: auto !important;
-            padding-left: 16px !important;
-            padding-right: 16px !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
         }
         
         iframe {
             max-width: 100% !important;
             width: 100% !important;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
         }
 
         /* CARROSSEL SLIDE */
         #carouselSlides {
-            transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
         
-        /* MELHORIA FORTE PARA MOBILE */
+        /* NAVBAR COM GLASSMORPHISM (DESFOQUE) */
+        .nav-glass {
+            background: rgba(63, 42, 31, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
         
+        /* AJUSTES MOBILE */
         @media (max-width: 640px) {
             .hero {
                 min-height: 100vh;
                 background-attachment: scroll;
-                padding-top: 70px;
+                padding-top: 80px;
+                padding-bottom: 40px;
             }
             .titulo-madeira {
-                font-size: 2.4rem !important;
-                line-height: 1.05 !important;
-            }
-            .container-fixo {
-                padding-left: 12px !important;
-                padding-right: 12px !important;
+                font-size: 2.2rem !important;
+                line-height: 1.1 !important;
             }
             .produto-card {
-                padding: 28px 20px !important;
+                padding: 24px 20px !important;
             }
         }
     </style>
 </head>
 
-<body class="bg-[#f5e8d3] text-[#3f2a1f]">
+<body class="text-[#3f2a1f] antialiased">
 
-    <!-- NAVBAR - APENAS 1 BOTÃO -->
-    <nav class="bg-[#3f2a1f] text-white py-5 sticky top-0 z-50 shadow-2xl">
+    <!-- NAVBAR PREMIUM -->
+    <nav class="nav-glass text-white py-4 sticky top-0 z-50 shadow-2xl transition-all duration-300" id="navbar">
         <div class="container-fixo flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <img src="https://iili.io/qq2y471.png" alt="JR ARTES" class="h-12">
-                <span class="text-3xl font-bold titulo-madeira tracking-widest">JR ARTES</span>
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                <img src="https://iili.io/qq2y471.png" alt="JR ARTES" class="h-12 md:h-14 drop-shadow-lg transition-transform hover:scale-105">
+                <span class="text-2xl md:text-3xl font-bold titulo-madeira tracking-widest drop-shadow-md hidden sm:block">JR ARTES</span>
             </div>
 
-            <button onclick="abrirWhatsApp('Olá! Quero fazer um orçamento!')" class="bg-[#d4aa6d] hover:bg-white hover:text-[#3f2a1f] font-bold px-8 py-3 rounded-3xl flex items-center gap-3 text-sm transition-all">
-                <i class="fab fa-whatsapp text-2xl"></i>
-                <span>WHATSAPP</span>
+            <button onclick="abrirWhatsApp('Olá! Quero fazer um orçamento!')" class="bg-[#d4aa6d] hover:bg-white hover:text-[#3f2a1f] text-[#3f2a1f] font-bold px-6 md:px-8 py-3 rounded-full flex items-center gap-3 text-sm md:text-base transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(212,170,109,0.6)] transform hover:-translate-y-1">
+                <i class="fab fa-whatsapp text-xl md:text-2xl"></i>
+                <span class="hidden sm:inline">WHATSAPP</span>
+                <span class="sm:hidden">ORÇAMENTO</span>
             </button>
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <section class="hero">
-        <div class="container-fixo grid md:grid-cols-2 gap-10 items-center">
-            <div class="flex justify-center">
-                <img src="https://iili.io/qq2y471.png" alt="JR ARTES" class="w-72 md:w-[420px]">
+        <div class="container-fixo grid md:grid-cols-2 gap-10 items-center z-10 relative">
+            <div class="flex justify-center reveal">
+                <img src="https://iili.io/qq2y471.png" alt="JR ARTES Logo" class="w-64 md:w-[450px] drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] animate-pulse" style="animation-duration: 4s;">
             </div>
 
-            <div class="text-white text-center md:text-left">
-                <div class="inline-block bg-white/20 text-sm font-bold px-8 py-3 rounded-3xl tracking-widest mb-6">
-                    OFERTA ESPECIAL
+            <div class="text-white text-center md:text-left reveal" style="transition-delay: 200ms;">
+                <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 text-xs md:text-sm font-bold px-6 py-2.5 rounded-full tracking-widest mb-6 uppercase shadow-lg">
+                    <span class="w-2 h-2 rounded-full bg-[#d4aa6d] animate-ping"></span>
+                    Oferta Especial
                 </div>
 
-                <div onclick="abrirWhatsApp('Quero a oferta dos Bancos Rústicos a partir de R$ 49,90!')" class="titulo-madeira text-5xl md:text-7xl font-bold leading-none cursor-pointer hover:text-[#d4aa6d] transition">
+                <div onclick="abrirWhatsApp('Quero a oferta dos Bancos Rústicos a partir de R$ 49,90!')" class="titulo-madeira text-5xl md:text-[5rem] font-bold leading-tight cursor-pointer hover:text-[#d4aa6d] transition-colors duration-300 drop-shadow-xl">
                     BANCOS RÚSTICOS
                 </div>
 
-                <div onclick="abrirWhatsApp('Quero a oferta dos Bancos Rústicos a partir de R$ 49,90!')" class="text-5xl md:text-7xl font-bold text-[#d4aa6d] mt-3 cursor-pointer">
+                <div onclick="abrirWhatsApp('Quero a oferta dos Bancos Rústicos a partir de R$ 49,90!')" class="text-4xl md:text-6xl font-bold text-[#d4aa6d] mt-2 cursor-pointer drop-shadow-md">
                     A PARTIR DE R$ 49,90
                 </div>
 
-                <button onclick="abrirWhatsApp('Olá! Quero meu orçamento agora!')" class="mt-12 bg-[#d4aa6d] hover:bg-white hover:text-[#3f2a1f] text-[#3f2a1f] font-bold text-2xl px-12 py-6 rounded-3xl shadow-xl">
-                    FAÇA SEU ORÇAMENTO
+                <button onclick="abrirWhatsApp('Olá! Quero meu orçamento agora!')" class="mt-10 bg-gradient-to-r from-[#d4aa6d] to-[#e6c594] hover:from-white hover:to-white text-[#3f2a1f] font-bold text-xl md:text-2xl px-10 py-5 rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.4)] transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 flex items-center gap-4 mx-auto md:mx-0">
+                    FAÇA SEU ORÇAMENTO <i class="fas fa-arrow-right"></i>
                 </button>
             </div>
+        </div>
+        
+        <!-- Ondinha de separação inferior -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+            <svg class="relative block w-full h-[50px] md:h-[80px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118,130.42,126.38,197.6,120.3,249.7,115.54,300.74,103.55,321.39,56.44Z" fill="#fdfaf5"></path>
+            </svg>
         </div>
     </section>
 
     <!-- BARRA DE CONFIANÇA -->
-    <section class="py-8 bg-[#f5e8d3]">
+    <section class="py-12 bg-[#fdfaf5] relative -mt-4 z-20">
         <div class="container-fixo">
-            <div class="flex flex-col md:flex-row items-center justify-center gap-10 text-center">
-                <div class="flex-1">
-                    <div class="inline-flex items-center gap-4 bg-white rounded-3xl px-8 py-5 shadow">
-                        <div class="text-6xl font-bold titulo-madeira text-[#3f2a1f]">+20</div>
-                        <div>
-                            <div class="text-2xl font-bold titulo-madeira text-[#3f2a1f]">ANOS</div>
-                            <div class="text-sm tracking-widest text-[#d4aa6d] font-medium">NO MERCADO</div>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 text-center">
+                <div class="flex-1 w-full reveal">
+                    <div class="flex items-center justify-center gap-5 bg-white rounded-3xl px-8 py-6 shadow-[0_10px_30px_rgba(63,42,31,0.08)] border border-gray-100 hover:border-[#d4aa6d] transition-colors duration-300">
+                        <div class="text-5xl md:text-6xl font-bold titulo-madeira text-[#3f2a1f]">+20</div>
+                        <div class="text-left">
+                            <div class="text-xl md:text-2xl font-bold titulo-madeira text-[#3f2a1f] leading-none">ANOS</div>
+                            <div class="text-xs md:text-sm tracking-widest text-[#d4aa6d] font-semibold mt-1">NO MERCADO</div>
                         </div>
                     </div>
                 </div>
-                <div class="flex-1">
-                    <div class="inline-flex items-center gap-4 bg-white rounded-3xl px-8 py-5 shadow">
-                        <div class="text-6xl font-bold titulo-madeira text-[#3f2a1f]">1</div>
-                        <div>
-                            <div class="text-2xl font-bold titulo-madeira text-[#3f2a1f]">ANO</div>
-                            <div class="text-sm tracking-widest text-[#d4aa6d] font-medium">DE GARANTIA</div>
+                <div class="flex-1 w-full reveal" style="transition-delay: 150ms;">
+                    <div class="flex items-center justify-center gap-5 bg-white rounded-3xl px-8 py-6 shadow-[0_10px_30px_rgba(63,42,31,0.08)] border border-gray-100 hover:border-[#d4aa6d] transition-colors duration-300">
+                        <div class="text-5xl md:text-6xl font-bold titulo-madeira text-[#3f2a1f] text-center w-16">1</div>
+                        <div class="text-left">
+                            <div class="text-xl md:text-2xl font-bold titulo-madeira text-[#3f2a1f] leading-none">ANO</div>
+                            <div class="text-xs md:text-sm tracking-widest text-[#d4aa6d] font-semibold mt-1">DE GARANTIA</div>
                         </div>
                     </div>
                 </div>
@@ -184,134 +226,166 @@
         </div>
     </section>
 
-    <!-- PRODUTOS + PREÇOS (SISTEMA DE VENDAS OTIMIZADO) -->
+    <!-- PRODUTOS + PREÇOS -->
     <section id="produtos" class="py-20 bg-white">
         <div class="container-fixo">
-            <div class="text-center mb-12">
-                <span class="bg-[#3f2a1f] text-[#d4aa6d] text-xs tracking-widest font-bold px-6 py-2 rounded-full">CLIQUE PARA ORÇAMENTO</span>
-                <h2 class="titulo-madeira text-5xl md:text-6xl font-bold mt-4">Nossos Produtos em Madeira</h2>
+            <div class="text-center mb-16 reveal">
+                <span class="inline-block bg-[#3f2a1f] text-[#d4aa6d] text-xs md:text-sm tracking-widest font-bold px-6 py-2.5 rounded-full shadow-md">CLIQUE PARA ORÇAMENTO</span>
+                <h2 class="titulo-madeira text-4xl md:text-6xl font-bold mt-6 text-[#3f2a1f]">Nossos Produtos em Madeira</h2>
+                <div class="w-24 h-1 bg-[#d4aa6d] mx-auto mt-6 rounded-full"></div>
             </div>
 
             <!-- INFORMAÇÃO DE MADEIRA + ENTREGA -->
-            <div class="max-w-3xl mx-auto bg-[#3f2a1f] text-white p-8 rounded-3xl mb-12 text-center shadow-xl">
-                <p class="text-2xl font-medium">✅ <strong class="text-[#d4aa6d]">Madeira Pinho</strong> de alta qualidade</p>
-                <p class="mt-3 text-lg">Todos os preços abaixo são para <strong>Madeira Pinho</strong></p>
-                <p class="mt-4 text-xl font-bold">Na sua medida? Faça o orçamento agora!</p>
-                <p class="mt-6 text-[#d4aa6d] text-lg">Outros tipos de madeira → consulte via WhatsApp</p>
-                <p class="mt-8 text-2xl font-bold flex items-center justify-center gap-3">
-                    <span class="text-4xl">🚚</span> 
-                    ENTREGAMOS EM TODO MONTE CARMELO - MG
-                </p>
+            <div class="max-w-3xl mx-auto bg-gradient-to-br from-[#3f2a1f] to-[#2a1b14] text-white p-8 md:p-10 rounded-3xl mb-16 text-center shadow-[0_20px_40px_rgba(63,42,31,0.2)] reveal relative overflow-hidden border border-[#d4aa6d]/30">
+                <!-- Ícone de fundo suave -->
+                <i class="fas fa-tree absolute -right-10 -top-10 text-[15rem] opacity-5"></i>
+                
+                <p class="text-xl md:text-2xl font-medium relative z-10"><i class="fas fa-check-circle text-[#d4aa6d] mr-2"></i> <strong class="text-[#d4aa6d]">Madeira Pinho</strong> de alta qualidade</p>
+                <p class="mt-3 text-base md:text-lg text-gray-300 relative z-10">Todos os preços abaixo são para <strong>Madeira Pinho</strong></p>
+                
+                <div class="my-6 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+                
+                <p class="text-xl md:text-2xl font-bold relative z-10">Na sua medida? Faça o orçamento agora!</p>
+                <p class="mt-2 text-[#d4aa6d] text-base md:text-lg font-medium relative z-10">Outros tipos de madeira <i class="fas fa-arrow-right mx-1 text-sm"></i> consulte via WhatsApp</p>
+                
+                <div class="mt-8 inline-flex items-center justify-center gap-4 bg-white/10 px-6 py-4 rounded-2xl border border-white/10 relative z-10">
+                    <div class="bg-[#d4aa6d] text-[#3f2a1f] w-12 h-12 rounded-full flex items-center justify-center text-2xl shadow-lg">
+                        <i class="fas fa-truck-fast"></i>
+                    </div>
+                    <p class="text-lg md:text-xl font-bold text-left leading-tight">
+                        ENTREGAMOS EM TODO<br><span class="text-[#d4aa6d]">MONTE CARMELO - MG</span>
+                    </p>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- GRID DE PRODUTOS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
                 <!-- 1 -->
-                <div onclick="abrirWhatsApp('Quero orçamento de Mesas Normais - R$ 200,00 cada em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
-                    <h3 class="text-4xl font-bold titulo-madeira">MESAS NORMAIS</h3>
-                    <div class="mt-8 pt-8 border-t border-white/30">
-                        <p class="text-5xl font-bold text-[#d4aa6d]">R$ 200,00</p>
-                        <p class="text-sm opacity-75 mt-1">unidade • sob medida</p>
+                <div onclick="abrirWhatsApp('Quero orçamento de Mesas Normais - R$ 200,00 cada em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-8 md:p-10 rounded-3xl cursor-pointer reveal shadow-xl border border-transparent hover:border-[#d4aa6d]/50">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-3xl md:text-4xl font-bold titulo-madeira">MESAS NORMAIS</h3>
+                        <i class="fas fa-arrow-up-right-from-square text-[#d4aa6d] opacity-50 text-xl"></i>
+                    </div>
+                    <div class="pt-6 border-t border-white/20">
+                        <p class="text-5xl md:text-6xl font-bold text-[#d4aa6d]">R$ 200<span class="text-2xl">,00</span></p>
+                        <p class="text-sm text-gray-400 mt-2 font-medium tracking-wide">UNIDADE • SOB MEDIDA</p>
                     </div>
                 </div>
 
                 <!-- 2 -->
-                <div onclick="abrirWhatsApp('Quero orçamento de Mesas Dobráveis - R$ 100,00 cada em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
-                    <h3 class="text-4xl font-bold titulo-madeira">MESAS DOBRÁVEIS</h3>
-                    <div class="mt-8 pt-8 border-t border-white/30">
-                        <p class="text-5xl font-bold text-[#d4aa6d]">R$ 100,00</p>
-                        <p class="text-sm opacity-75 mt-1">unidade • sob medida</p>
+                <div onclick="abrirWhatsApp('Quero orçamento de Mesas Dobráveis - R$ 100,00 cada em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-8 md:p-10 rounded-3xl cursor-pointer reveal shadow-xl border border-transparent hover:border-[#d4aa6d]/50" style="transition-delay: 100ms;">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-3xl md:text-4xl font-bold titulo-madeira">MESAS DOBRÁVEIS</h3>
+                        <i class="fas fa-arrow-up-right-from-square text-[#d4aa6d] opacity-50 text-xl"></i>
+                    </div>
+                    <div class="pt-6 border-t border-white/20">
+                        <p class="text-5xl md:text-6xl font-bold text-[#d4aa6d]">R$ 100<span class="text-2xl">,00</span></p>
+                        <p class="text-sm text-gray-400 mt-2 font-medium tracking-wide">UNIDADE • SOB MEDIDA</p>
                     </div>
                 </div>
 
                 <!-- 3 -->
-                <div onclick="abrirWhatsApp('Quero orçamento de Cadeiras - Normais R$90 ou Dobráveis R$75 em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
-                    <h3 class="text-4xl font-bold titulo-madeira">CADEIRAS</h3>
-                    <div class="mt-8 pt-8 border-t border-white/30 grid grid-cols-2 gap-4 text-center">
-                        <div>
-                            <p class="text-3xl font-bold text-[#d4aa6d]">R$ 90,00</p>
-                            <p class="text-xs opacity-75">Normais</p>
+                <div onclick="abrirWhatsApp('Quero orçamento de Cadeiras - Normais R$90 ou Dobráveis R$75 em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-8 md:p-10 rounded-3xl cursor-pointer reveal shadow-xl border border-transparent hover:border-[#d4aa6d]/50">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-3xl md:text-4xl font-bold titulo-madeira">CADEIRAS</h3>
+                        <i class="fas fa-arrow-up-right-from-square text-[#d4aa6d] opacity-50 text-xl"></i>
+                    </div>
+                    <div class="pt-6 border-t border-white/20 grid grid-cols-2 gap-6 text-center">
+                        <div class="bg-white/5 p-4 rounded-2xl">
+                            <p class="text-3xl md:text-4xl font-bold text-[#d4aa6d]">R$ 90</p>
+                            <p class="text-sm text-gray-300 mt-1 uppercase font-medium">Normais</p>
                         </div>
-                        <div>
-                            <p class="text-3xl font-bold text-[#d4aa6d]">R$ 75,00</p>
-                            <p class="text-xs opacity-75">Dobráveis</p>
+                        <div class="bg-white/5 p-4 rounded-2xl">
+                            <p class="text-3xl md:text-4xl font-bold text-[#d4aa6d]">R$ 75</p>
+                            <p class="text-sm text-gray-300 mt-1 uppercase font-medium">Dobráveis</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- 4 -->
-                <div onclick="abrirWhatsApp('Quero orçamento de Bancos Rústicos - Pequeno R$40 / Médio R$50 / Alto R$80 em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
-                    <h3 class="text-4xl font-bold titulo-madeira">BANCOS RÚSTICOS</h3>
-                    <div class="mt-8 pt-8 border-t border-white/30 grid grid-cols-3 gap-3 text-center text-sm">
-                        <div><p class="font-bold text-[#d4aa6d]">R$ 40</p><p class="opacity-75 text-xs">Pequeno</p></div>
-                        <div><p class="font-bold text-[#d4aa6d]">R$ 50</p><p class="opacity-75 text-xs">Médio</p></div>
-                        <div><p class="font-bold text-[#d4aa6d]">R$ 80</p><p class="opacity-75 text-xs">Alto</p></div>
+                <div onclick="abrirWhatsApp('Quero orçamento de Bancos Rústicos - Pequeno R$40 / Médio R$50 / Alto R$80 em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-8 md:p-10 rounded-3xl cursor-pointer reveal shadow-xl border border-transparent hover:border-[#d4aa6d]/50" style="transition-delay: 100ms;">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-3xl md:text-4xl font-bold titulo-madeira">BANCOS RÚSTICOS</h3>
+                        <i class="fas fa-arrow-up-right-from-square text-[#d4aa6d] opacity-50 text-xl"></i>
+                    </div>
+                    <div class="pt-6 border-t border-white/20 grid grid-cols-3 gap-3 text-center">
+                        <div class="bg-white/5 p-3 rounded-2xl"><p class="font-bold text-2xl md:text-3xl text-[#d4aa6d]">R$ 40</p><p class="text-gray-300 text-xs mt-1 uppercase font-medium">Pequeno</p></div>
+                        <div class="bg-white/5 p-3 rounded-2xl"><p class="font-bold text-2xl md:text-3xl text-[#d4aa6d]">R$ 50</p><p class="text-gray-300 text-xs mt-1 uppercase font-medium">Médio</p></div>
+                        <div class="bg-white/5 p-3 rounded-2xl"><p class="font-bold text-2xl md:text-3xl text-[#d4aa6d]">R$ 80</p><p class="text-gray-300 text-xs mt-1 uppercase font-medium">Alto</p></div>
                     </div>
                 </div>
 
                 <!-- 5 -->
-                <div onclick="abrirWhatsApp('Quero orçamento de Bancos de Jardim Suspensos - Médio R$100 / Grande R$250 em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
-                    <h3 class="text-4xl font-bold titulo-madeira">BANCOS DE JARDIM SUSPENSOS</h3>
-                    <div class="mt-8 pt-8 border-t border-white/30 grid grid-cols-2 gap-4 text-center">
-                        <div>
-                            <p class="text-3xl font-bold text-[#d4aa6d]">R$ 100,00</p>
-                            <p class="text-xs opacity-75">Médio</p>
+                <div onclick="abrirWhatsApp('Quero orçamento de Bancos de Jardim Suspensos - Médio R$100 / Grande R$250 em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-8 md:p-10 rounded-3xl cursor-pointer reveal shadow-xl border border-transparent hover:border-[#d4aa6d]/50">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-3xl md:text-4xl font-bold titulo-madeira leading-tight">BANCOS DE JARDIM<br>SUSPENSOS</h3>
+                        <i class="fas fa-arrow-up-right-from-square text-[#d4aa6d] opacity-50 text-xl"></i>
+                    </div>
+                    <div class="pt-6 border-t border-white/20 grid grid-cols-2 gap-6 text-center">
+                        <div class="bg-white/5 p-4 rounded-2xl">
+                            <p class="text-3xl md:text-4xl font-bold text-[#d4aa6d]">R$ 100</p>
+                            <p class="text-sm text-gray-300 mt-1 uppercase font-medium">Médio</p>
                         </div>
-                        <div>
-                            <p class="text-3xl font-bold text-[#d4aa6d]">R$ 250,00</p>
-                            <p class="text-xs opacity-75">Grande</p>
+                        <div class="bg-white/5 p-4 rounded-2xl">
+                            <p class="text-3xl md:text-4xl font-bold text-[#d4aa6d]">R$ 250</p>
+                            <p class="text-sm text-gray-300 mt-1 uppercase font-medium">Grande</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- 6 -->
-                <div onclick="abrirWhatsApp('Quero orçamento de Cavalinho de Madeira - R$ 130,00 em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
-                    <h3 class="text-4xl font-bold titulo-madeira">CAVALINHO DE MADEIRA</h3>
-                    <div class="mt-8 pt-8 border-t border-white/30">
-                        <p class="text-5xl font-bold text-[#d4aa6d]">R$ 130,00</p>
-                        <p class="text-sm opacity-75 mt-1">unidade • sob medida</p>
+                <div onclick="abrirWhatsApp('Quero orçamento de Cavalinho de Madeira - R$ 130,00 em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-8 md:p-10 rounded-3xl cursor-pointer reveal shadow-xl border border-transparent hover:border-[#d4aa6d]/50" style="transition-delay: 100ms;">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-3xl md:text-4xl font-bold titulo-madeira">CAVALINHO DE MADEIRA</h3>
+                        <i class="fas fa-arrow-up-right-from-square text-[#d4aa6d] opacity-50 text-xl"></i>
+                    </div>
+                    <div class="pt-6 border-t border-white/20">
+                        <p class="text-5xl md:text-6xl font-bold text-[#d4aa6d]">R$ 130<span class="text-2xl">,00</span></p>
+                        <p class="text-sm text-gray-400 mt-2 font-medium tracking-wide">UNIDADE • SOB MEDIDA</p>
                     </div>
                 </div>
             </div>
 
-            <!-- PACOTES PROMOCIONAIS (SISTEMA DE VENDAS) -->
-            <div class="mt-20">
+            <!-- PACOTES PROMOCIONAIS -->
+            <div class="mt-24 reveal">
                 <div class="text-center mb-12">
-                    <span class="bg-[#d4aa6d] text-[#3f2a1f] px-8 py-3 rounded-3xl font-bold text-sm tracking-widest">PROMOÇÃO ESPECIAL</span>
-                    <h3 class="titulo-madeira text-5xl mt-4">Jogos Completos com Desconto</h3>
+                    <span class="inline-block bg-[#d4aa6d] text-[#3f2a1f] px-8 py-2.5 rounded-full font-bold text-sm tracking-widest shadow-lg uppercase">Promoção Especial</span>
+                    <h3 class="titulo-madeira text-4xl md:text-5xl mt-6 text-[#3f2a1f]">Jogos Completos com Desconto</h3>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div onclick="abrirWhatsApp('Quero o Jogo de mesa dobrável com 4 cadeiras dobráveis por apenas R$ 400,00 em Madeira Pinho!')" class="produto-card bg-gradient-to-br from-[#3f2a1f] to-[#2a1f15] text-white p-9 rounded-3xl cursor-pointer border-2 border-[#d4aa6d]">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-3xl font-bold titulo-madeira">JOGO DOBRÁVEL<br>4 CADEIRAS</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div onclick="abrirWhatsApp('Quero o Jogo de mesa dobrável com 4 cadeiras dobráveis por apenas R$ 400,00 em Madeira Pinho!')" class="produto-card bg-gradient-to-br from-[#3f2a1f] to-[#1a110c] text-white p-8 md:p-10 rounded-3xl cursor-pointer border-2 border-[#d4aa6d] shadow-[0_15px_30px_rgba(212,170,109,0.2)]">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-2xl md:text-3xl font-bold titulo-madeira leading-snug">JOGO DOBRÁVEL<br><span class="text-[#d4aa6d]">4 CADEIRAS</span></h3>
                             <div class="text-right">
-                                <p class="text-5xl font-bold text-[#d4aa6d]">R$ 400,00</p>
+                                <p class="text-4xl md:text-5xl font-bold text-white">R$ 400</p>
                             </div>
                         </div>
                     </div>
 
-                    <div onclick="abrirWhatsApp('Quero o Jogo de mesa dobrável com 6 cadeiras dobráveis por apenas R$ 600,00 em Madeira Pinho!')" class="produto-card bg-gradient-to-br from-[#3f2a1f] to-[#2a1f15] text-white p-9 rounded-3xl cursor-pointer border-2 border-[#d4aa6d]">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-3xl font-bold titulo-madeira">JOGO DOBRÁVEL<br>6 CADEIRAS</h3>
+                    <div onclick="abrirWhatsApp('Quero o Jogo de mesa dobrável com 6 cadeiras dobráveis por apenas R$ 600,00 em Madeira Pinho!')" class="produto-card bg-gradient-to-br from-[#3f2a1f] to-[#1a110c] text-white p-8 md:p-10 rounded-3xl cursor-pointer border-2 border-[#d4aa6d] shadow-[0_15px_30px_rgba(212,170,109,0.2)]">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-2xl md:text-3xl font-bold titulo-madeira leading-snug">JOGO DOBRÁVEL<br><span class="text-[#d4aa6d]">6 CADEIRAS</span></h3>
                             <div class="text-right">
-                                <p class="text-5xl font-bold text-[#d4aa6d]">R$ 600,00</p>
+                                <p class="text-4xl md:text-5xl font-bold text-white">R$ 600</p>
                             </div>
                         </div>
                     </div>
 
-                    <div onclick="abrirWhatsApp('Quero o Jogo de mesa normal com 4 cadeiras por apenas R$ 420,00 em Madeira Pinho!')" class="produto-card bg-gradient-to-br from-[#3f2a1f] to-[#2a1f15] text-white p-9 rounded-3xl cursor-pointer border-2 border-[#d4aa6d]">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-3xl font-bold titulo-madeira">JOGO NORMAL<br>4 CADEIRAS</h3>
+                    <div onclick="abrirWhatsApp('Quero o Jogo de mesa normal com 4 cadeiras por apenas R$ 420,00 em Madeira Pinho!')" class="produto-card bg-gradient-to-br from-[#3f2a1f] to-[#1a110c] text-white p-8 md:p-10 rounded-3xl cursor-pointer border-2 border-[#d4aa6d] shadow-[0_15px_30px_rgba(212,170,109,0.2)]">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-2xl md:text-3xl font-bold titulo-madeira leading-snug">JOGO NORMAL<br><span class="text-[#d4aa6d]">4 CADEIRAS</span></h3>
                             <div class="text-right">
-                                <p class="text-5xl font-bold text-[#d4aa6d]">R$ 420,00</p>
+                                <p class="text-4xl md:text-5xl font-bold text-white">R$ 420</p>
                             </div>
                         </div>
                     </div>
 
-                    <div onclick="abrirWhatsApp('Quero o Jogo de mesa normal com 6 cadeiras por apenas R$ 620,00 em Madeira Pinho!')" class="produto-card bg-gradient-to-br from-[#3f2a1f] to-[#2a1f15] text-white p-9 rounded-3xl cursor-pointer border-2 border-[#d4aa6d]">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-3xl font-bold titulo-madeira">JOGO NORMAL<br>6 CADEIRAS</h3>
+                    <div onclick="abrirWhatsApp('Quero o Jogo de mesa normal com 6 cadeiras por apenas R$ 620,00 em Madeira Pinho!')" class="produto-card bg-gradient-to-br from-[#3f2a1f] to-[#1a110c] text-white p-8 md:p-10 rounded-3xl cursor-pointer border-2 border-[#d4aa6d] shadow-[0_15px_30px_rgba(212,170,109,0.2)]">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-2xl md:text-3xl font-bold titulo-madeira leading-snug">JOGO NORMAL<br><span class="text-[#d4aa6d]">6 CADEIRAS</span></h3>
                             <div class="text-right">
-                                <p class="text-5xl font-bold text-[#d4aa6d]">R$ 620,00</p>
+                                <p class="text-4xl md:text-5xl font-bold text-white">R$ 620</p>
                             </div>
                         </div>
                     </div>
@@ -320,188 +394,333 @@
         </div>
     </section>
 
-    <!-- GALERIA SLIDE (novo modelo - passa pros lados) -->
-    <section class="py-20 bg-[#f5e8d3]">
+    <!-- GALERIA SLIDE (Automático + Interativo) -->
+    <section class="py-24 bg-[#fdfaf5]">
         <div class="container-fixo">
-            <div class="text-center mb-12">
-                <span class="bg-[#3f2a1f] text-[#d4aa6d] text-xs tracking-widest font-bold px-6 py-2 rounded-full">ITENS À VENDA</span>
-                <h2 class="titulo-madeira text-5xl md:text-6xl font-bold mt-4">GALERIA DE IMAGENS</h2>
+            <div class="text-center mb-16 reveal">
+                <span class="inline-block bg-[#3f2a1f] text-[#d4aa6d] text-xs md:text-sm tracking-widest font-bold px-6 py-2.5 rounded-full shadow-md uppercase">Itens à Venda</span>
+                <h2 class="titulo-madeira text-4xl md:text-5xl font-bold mt-6 text-[#3f2a1f]">Galeria de Imagens</h2>
+                <div class="w-24 h-1 bg-[#d4aa6d] mx-auto mt-6 rounded-full"></div>
             </div>
 
-            <div class="relative max-w-5xl mx-auto">
+            <div class="relative max-w-4xl mx-auto reveal group">
                 <!-- SETA ESQUERDA -->
-                <button onclick="prevSlide()" 
-                        class="absolute -left-6 top-1/2 -translate-y-1/2 bg-white shadow-2xl hover:bg-[#d4aa6d] hover:text-white text-[#3f2a1f] w-14 h-14 flex items-center justify-center rounded-2xl z-20 transition-all text-3xl">
+                <button onclick="prevSlide(); resetAutoSlide();" 
+                        class="absolute -left-5 md:-left-8 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur shadow-[0_10px_20px_rgba(0,0,0,0.15)] hover:bg-[#d4aa6d] hover:text-white text-[#3f2a1f] w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full z-20 transition-all duration-300 text-xl md:text-2xl opacity-80 group-hover:opacity-100 hover:scale-110 border border-gray-100">
                     <i class="fas fa-chevron-left"></i>
                 </button>
 
                 <!-- CARROSSEL -->
-                <div class="overflow-hidden rounded-3xl shadow-2xl">
-                    <div id="carouselSlides" class="flex w-full">
-                        <!-- IMAGENS DO SLIDE -->
-                        <div class="flex-none w-full"><img src="https://iili.io/qqFhLIj.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
-                        <div class="flex-none w-full"><img src="https://iili.io/qqFj5Cl.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
-                        <div class="flex-none w-full"><img src="https://iili.io/qqFj8ua.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
-                        <div class="flex-none w-full"><img src="https://iili.io/qqFwCox.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
-                        <div class="flex-none w-full"><img src="https://iili.io/qqFw7DJ.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
-                        <div class="flex-none w-full"><img src="https://iili.io/qqFwpOg.md.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
-                        <div class="flex-none w-full"><img src="https://iili.io/qqFNRgS.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
-                        <div class="flex-none w-full"><img src="https://iili.io/qqFNipn.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
-                        <div class="flex-none w-full"><img src="https://iili.io/qqFOxv1.md.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
-                        <div class="flex-none w-full"><img src="https://iili.io/qqFOUZb.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
-                        <div class="flex-none w-full"><img src="https://iili.io/qqFeIl2.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
-                        <div class="flex-none w-full"><img src="https://iili.io/qqFeVHP.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
-                        <div class="flex-none w-full"><img src="https://iili.io/qqFe4bn.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
-                        <div class="flex-none w-full"><img src="https://iili.io/qqFetg2.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                <div class="overflow-hidden rounded-[2rem] shadow-[0_25px_50px_-12px_rgba(63,42,31,0.3)] border-4 border-white">
+                    <div id="carouselSlides" class="flex w-full cursor-grab active:cursor-grabbing">
+                        <!-- IMAGENS -->
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFhLIj.jpg" class="w-full h-auto object-cover aspect-square md:aspect-[4/3]" alt="Produto JR ARTES" loading="lazy"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFj5Cl.jpg" class="w-full h-auto object-cover aspect-square md:aspect-[4/3]" alt="Produto JR ARTES" loading="lazy"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFj8ua.jpg" class="w-full h-auto object-cover aspect-square md:aspect-[4/3]" alt="Produto JR ARTES" loading="lazy"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFwCox.jpg" class="w-full h-auto object-cover aspect-square md:aspect-[4/3]" alt="Produto JR ARTES" loading="lazy"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFw7DJ.jpg" class="w-full h-auto object-cover aspect-square md:aspect-[4/3]" alt="Produto JR ARTES" loading="lazy"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFwpOg.md.jpg" class="w-full h-auto object-cover aspect-square md:aspect-[4/3]" alt="Produto JR ARTES" loading="lazy"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFNRgS.jpg" class="w-full h-auto object-cover aspect-square md:aspect-[4/3]" alt="Produto JR ARTES" loading="lazy"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFNipn.jpg" class="w-full h-auto object-cover aspect-square md:aspect-[4/3]" alt="Produto JR ARTES" loading="lazy"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFOxv1.md.jpg" class="w-full h-auto object-cover aspect-square md:aspect-[4/3]" alt="Produto JR ARTES" loading="lazy"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFOUZb.jpg" class="w-full h-auto object-cover aspect-square md:aspect-[4/3]" alt="Produto JR ARTES" loading="lazy"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFeIl2.jpg" class="w-full h-auto object-cover aspect-square md:aspect-[4/3]" alt="Produto JR ARTES" loading="lazy"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFeVHP.jpg" class="w-full h-auto object-cover aspect-square md:aspect-[4/3]" alt="Produto JR ARTES" loading="lazy"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFe4bn.jpg" class="w-full h-auto object-cover aspect-square md:aspect-[4/3]" alt="Produto JR ARTES" loading="lazy"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFetg2.jpg" class="w-full h-auto object-cover aspect-square md:aspect-[4/3]" alt="Produto JR ARTES" loading="lazy"></div>
                     </div>
                 </div>
 
                 <!-- SETA DIREITA -->
-                <button onclick="nextSlide()" 
-                        class="absolute -right-6 top-1/2 -translate-y-1/2 bg-white shadow-2xl hover:bg-[#d4aa6d] hover:text-white text-[#3f2a1f] w-14 h-14 flex items-center justify-center rounded-2xl z-20 transition-all text-3xl">
+                <button onclick="nextSlide(); resetAutoSlide();" 
+                        class="absolute -right-5 md:-right-8 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur shadow-[0_10px_20px_rgba(0,0,0,0.15)] hover:bg-[#d4aa6d] hover:text-white text-[#3f2a1f] w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full z-20 transition-all duration-300 text-xl md:text-2xl opacity-80 group-hover:opacity-100 hover:scale-110 border border-gray-100">
                     <i class="fas fa-chevron-right"></i>
                 </button>
+                
+                <!-- Indicadores do Carrossel -->
+                <div class="flex justify-center gap-2 mt-6" id="carouselIndicators">
+                    <!-- Gerados via JS -->
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- LOCALIZAÇÃO -->
-    <section id="local" class="py-20 bg-[#3f2a1f] text-white">
-        <div class="container-fixo text-center">
-            <h2 class="titulo-madeira text-5xl font-bold mb-6">NOSSA OFICINA</h2>
-            <p class="text-3xl">Monte Carmelo - MG</p>
-            <p class="text-2xl text-[#d4aa6d] mt-2">Rua João Casado, 183 • Santo Agostinho</p>
-            <p class="text-3xl mt-8 font-bold">(34) 99100-1778</p>
+    <!-- LOCALIZAÇÃO PREMIUM -->
+    <section id="local" class="py-24 bg-[#3f2a1f] text-white relative overflow-hidden">
+        <!-- Textura de fundo suave -->
+        <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_center,_#ffffff_0%,_transparent_100%)] bg-[length:20px_20px]"></div>
+        
+        <div class="container-fixo text-center relative z-10 reveal">
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#d4aa6d] text-[#3f2a1f] text-3xl mb-8 shadow-[0_0_30px_rgba(212,170,109,0.3)]">
+                <i class="fas fa-map-location-dot"></i>
+            </div>
+            
+            <h2 class="titulo-madeira text-5xl md:text-6xl font-bold mb-6">Nossa Oficina</h2>
+            <p class="text-2xl md:text-3xl font-light">Monte Carmelo - MG</p>
+            <p class="text-xl md:text-2xl text-[#d4aa6d] mt-3 font-medium">Rua João Casado, 183 • Santo Agostinho</p>
+            
+            <div class="inline-block mt-8 bg-white/10 backdrop-blur-sm border border-white/20 px-8 py-4 rounded-full">
+                <p class="text-3xl md:text-4xl font-bold tracking-wide flex items-center gap-4">
+                    <i class="fab fa-whatsapp text-[#25D366]"></i> (34) 99100-1778
+                </p>
+            </div>
 
-            <div class="mt-12">
-                <iframe width="100%" height="420" src="https://www.google.com/maps?q=Rua+João+Casado+183,+Santo+Agostinho,+Monte+Carmelo+-+MG&output=embed" allowfullscreen="" loading="lazy"></iframe>
+            <div class="mt-16 max-w-5xl mx-auto rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-[#d4aa6d]/30">
+                <iframe width="100%" height="450" src="https://www.google.com/maps?q=Rua+João+Casado+183,+Santo+Agostinho,+Monte+Carmelo+-+MG&output=embed" allowfullscreen="" loading="lazy" style="border:0;"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- CHAT SUPER INTELIGENTE -->
-    <button onclick="toggleChat()" class="fixed bottom-6 left-6 bg-[#3f2a1f] text-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-2xl z-50 hover:bg-[#d4aa6d] hover:text-[#3f2a1f] transition-all">
+    <!-- ASSISTENTE VIRTUAL (CHAT) -->
+    <button onclick="toggleChat()" class="fixed bottom-6 left-6 bg-[#3f2a1f] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-[0_10px_25px_rgba(63,42,31,0.5)] z-50 hover:bg-[#d4aa6d] hover:text-[#3f2a1f] transition-all duration-300 transform hover:scale-110 border-2 border-transparent hover:border-white animate-bounce-slow" style="animation: float 3s ease-in-out infinite;">
         <i class="fas fa-comments text-3xl"></i>
+        <!-- Notificação de mensagem (bolinha vermelha) -->
+        <span class="absolute top-0 right-0 w-4 h-4 bg-red-500 border-2 border-[#3f2a1f] rounded-full"></span>
     </button>
 
-    <div id="chatModal" class="hidden fixed inset-0 bg-black/70 z-[100] flex items-end md:items-center justify-center">
-        <div class="chat-modal bg-white w-full max-w-md h-[85vh] md:h-[620px] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col">
-            <div class="bg-[#3f2a1f] text-white p-5 rounded-t-3xl flex justify-between items-center">
-                <div>
-                    <p class="font-bold text-lg">JR ARTES</p>
-                    <p class="text-xs text-[#d4aa6d]">Atendimento Profissional</p>
+    <div id="chatModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-end md:items-center justify-center transition-opacity duration-300 p-0 md:p-4">
+        <div class="chat-modal bg-[#fdfaf5] w-full max-w-md h-[85vh] md:h-[650px] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-white/20">
+            <!-- HEADER CHAT -->
+            <div class="bg-gradient-to-r from-[#3f2a1f] to-[#2a1b14] text-white p-5 flex justify-between items-center shadow-md relative z-10">
+                <div class="flex items-center gap-3">
+                    <div class="relative">
+                        <img src="https://iili.io/qq2y471.png" alt="JR ARTES" class="w-12 h-12 rounded-full bg-white p-1 object-contain">
+                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-[#3f2a1f] rounded-full"></span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-lg leading-tight titulo-madeira tracking-wider">JR ARTES</p>
+                        <p class="text-xs text-[#d4aa6d] font-medium">Atendimento Profissional • Online</p>
+                    </div>
                 </div>
-                <button onclick="toggleChat()" class="text-3xl leading-none">×</button>
+                <button onclick="toggleChat()" class="text-3xl leading-none hover:text-[#d4aa6d] transition-colors w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20">&times;</button>
             </div>
 
-            <div id="chatBody" class="flex-1 p-5 overflow-y-auto bg-gray-50 space-y-4 text-sm">
-                <div class="bg-white p-4 rounded-2xl max-w-[85%]">
-                    Olá! Seja bem-vindo à JR ARTES em Madeiras.<br> Sou o assistente virtual. Como posso ajudar você hoje?
+            <!-- BODY CHAT -->
+            <div id="chatBody" class="flex-1 p-5 overflow-y-auto space-y-4 text-sm bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] scroll-smooth">
+                <div class="bg-white text-[#3f2a1f] p-4 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] border border-gray-100 flex gap-3 transform transition-all">
+                    <div class="text-xl mt-1 text-[#d4aa6d]"><i class="fas fa-robot"></i></div>
+                    <div>Olá! Seja bem-vindo à <strong>JR ARTES em Madeiras</strong>.<br> Sou o assistente virtual. Como posso ajudar você hoje?</div>
                 </div>
             </div>
 
-            <div class="p-5 border-t bg-white">
-                <p class="text-xs uppercase tracking-widest text-gray-500 mb-3">Escolha o produto desejado:</p>
-                <div class="grid grid-cols-2 gap-3 text-sm">
-                    <button onclick="selecionarProduto(this)" data-produto="Mesas Normais" class="border border-gray-300 hover:border-[#3f2a1f] p-3 rounded-2xl text-left transition">Mesas Normais</button>
-                    <button onclick="selecionarProduto(this)" data-produto="Mesas Dobráveis" class="border border-gray-300 hover:border-[#3f2a1f] p-3 rounded-2xl text-left transition">Mesas Dobráveis</button>
-                    <button onclick="selecionarProduto(this)" data-produto="Cadeiras" class="border border-gray-300 hover:border-[#3f2a1f] p-3 rounded-2xl text-left transition">Cadeiras</button>
-                    <button onclick="selecionarProduto(this)" data-produto="Bancos Rústicos" class="border border-gray-300 hover:border-[#3f2a1f] p-3 rounded-2xl text-left transition">Bancos Rústicos</button>
-                    <button onclick="selecionarProduto(this)" data-produto="Bancos de Jardim Suspensos" class="border border-gray-300 hover:border-[#3f2a1f] p-3 rounded-2xl text-left transition">Bancos de Jardim Suspensos</button>
-                    <button onclick="selecionarProduto(this)" data-produto="Cavalinho de Madeira" class="border border-gray-300 hover:border-[#3f2a1f] p-3 rounded-2xl text-left transition">Cavalinho de Madeira</button>
+            <!-- FOOTER CHAT (OPÇÕES) -->
+            <div class="p-5 bg-white border-t shadow-[0_-10px_20px_rgba(0,0,0,0.03)] relative z-10">
+                <p class="text-[11px] uppercase tracking-widest text-gray-400 font-bold mb-3 flex items-center gap-2">
+                    <i class="fas fa-list-ul"></i> Escolha o produto desejado:
+                </p>
+                <div class="grid grid-cols-2 gap-2 text-[13px] font-medium">
+                    <button onclick="selecionarProduto(this)" data-produto="Mesas Normais" class="border border-gray-200 hover:border-[#d4aa6d] hover:bg-[#fdfaf5] hover:text-[#3f2a1f] text-gray-600 p-2.5 rounded-xl text-center transition-all duration-200">Mesas Normais</button>
+                    <button onclick="selecionarProduto(this)" data-produto="Mesas Dobráveis" class="border border-gray-200 hover:border-[#d4aa6d] hover:bg-[#fdfaf5] hover:text-[#3f2a1f] text-gray-600 p-2.5 rounded-xl text-center transition-all duration-200">Mesas Dobráveis</button>
+                    <button onclick="selecionarProduto(this)" data-produto="Cadeiras" class="border border-gray-200 hover:border-[#d4aa6d] hover:bg-[#fdfaf5] hover:text-[#3f2a1f] text-gray-600 p-2.5 rounded-xl text-center transition-all duration-200">Cadeiras</button>
+                    <button onclick="selecionarProduto(this)" data-produto="Bancos Rústicos" class="border border-gray-200 hover:border-[#d4aa6d] hover:bg-[#fdfaf5] hover:text-[#3f2a1f] text-gray-600 p-2.5 rounded-xl text-center transition-all duration-200">Bancos Rústicos</button>
+                    <button onclick="selecionarProduto(this)" data-produto="Bancos de Jardim Suspensos" class="border border-gray-200 hover:border-[#d4aa6d] hover:bg-[#fdfaf5] hover:text-[#3f2a1f] text-gray-600 p-2.5 rounded-xl text-center transition-all duration-200">Bancos Suspensos</button>
+                    <button onclick="selecionarProduto(this)" data-produto="Cavalinho de Madeira" class="border border-gray-200 hover:border-[#d4aa6d] hover:bg-[#fdfaf5] hover:text-[#3f2a1f] text-gray-600 p-2.5 rounded-xl text-center transition-all duration-200">Cavalinho</button>
                 </div>
 
-                <button onclick="finalizarAtendimento()" class="mt-6 w-full bg-[#3f2a1f] text-white py-4 rounded-2xl font-medium">
-                    Falar com Atendente no WhatsApp
+                <button onclick="finalizarAtendimento()" class="mt-4 w-full bg-[#3f2a1f] hover:bg-[#2a1b14] text-white py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-md group">
+                    <i class="fab fa-whatsapp text-lg text-[#25D366] group-hover:scale-110 transition-transform"></i> Falar com Atendente
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- WHATSAPP FLUTUANTE -->
-    <button onclick="abrirWhatsApp('Olá! Vim pelo site e quero meu orçamento.')" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-2xl z-50 hover:scale-110 transition">
-        <i class="fab fa-whatsapp text-4xl"></i>
+    <!-- WHATSAPP FLUTUANTE PRINCIPAL -->
+    <button onclick="abrirWhatsApp('Olá! Vim pelo site e quero meu orçamento.')" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-[0_10px_25px_rgba(37,211,102,0.4)] z-50 hover:scale-110 transition-transform duration-300 before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-[#25D366] before:animate-ping before:opacity-40">
+        <i class="fab fa-whatsapp text-3xl z-10"></i>
     </button>
 
-    <footer class="bg-[#3f2a1f] text-white py-12 text-center">
-        <p class="titulo-madeira text-2xl">JR ARTES em Madeiras</p>
-        <p class="mt-2 text-sm opacity-75">Rua João Casado, 183 - Santo Agostinho • Monte Carmelo - MG</p>
-        <p class="mt-4 text-xs opacity-60">Entregamos em todo Monte Carmelo - MG • Madeira Pinho</p>
+    <!-- FOOTER PREMIUM -->
+    <footer class="bg-[#2a1b14] text-white py-16 text-center border-t border-white/10">
+        <div class="container-fixo">
+            <img src="https://iili.io/qq2y471.png" alt="Logo JR" class="w-24 mx-auto mb-6 opacity-80 grayscale hover:grayscale-0 transition-all duration-500">
+            <p class="titulo-madeira text-3xl font-bold tracking-widest text-[#d4aa6d]">JR ARTES <span class="text-white font-normal text-xl">em Madeiras</span></p>
+            
+            <div class="w-16 h-[1px] bg-[#d4aa6d] mx-auto my-6 opacity-50"></div>
+            
+            <p class="mt-2 text-base text-gray-300 font-light max-w-md mx-auto">Rua João Casado, 183 - Santo Agostinho<br>Monte Carmelo - MG</p>
+            
+            <div class="mt-8 inline-block bg-white/5 border border-white/10 px-6 py-2 rounded-full text-xs text-gray-400 font-medium tracking-wide uppercase">
+                <i class="fas fa-truck text-[#d4aa6d] mr-2"></i> Entregamos em Monte Carmelo - MG
+            </div>
+            
+            <p class="mt-12 text-xs text-gray-600">© 2024 JR ARTES em Madeiras. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
-    <script>
-        function initTailwind() {
-            tailwind.config = {
-                content: ["*"]
-            };
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
+    </style>
 
-        let produtoSelecionado = "";
+    <script>
+        // CONFIGURAÇÕES DO TAILWIND (Mantendo o seu setup original)
+        tailwind.config = { content: ["*"] };
 
+        // --- SISTEMA DE ANIMAÇÃO AO ROLAR A TELA (SCROLL REVEAL) ---
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            
+            reveals.forEach(reveal => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                const elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', initScrollReveal);
+
+        // --- MUDAR COR DA NAVBAR AO ROLAR ---
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if(window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow-2xl');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.add('py-4');
+                navbar.classList.remove('py-2', 'shadow-2xl');
+            }
+        });
+
+        // --- SISTEMA DE WHATSAPP ---
         function abrirWhatsApp(texto = "Olá! Quero fazer um orçamento.") {
             const numero = "5534991001778";
             window.open(`https://wa.me/${numero}?text=${encodeURIComponent(texto)}`, "_blank");
         }
 
+        // --- SISTEMA DO CHAT INTELIGENTE ---
+        let produtoSelecionado = "";
+
         function toggleChat() {
             const modal = document.getElementById('chatModal');
-            modal.classList.toggle('hidden');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                // Adiciona a classe de animação se não existir
+                document.querySelector('.chat-modal').style.animation = 'slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+            } else {
+                modal.classList.add('hidden');
+            }
         }
 
         function adicionarMensagem(texto, tipo = 'bot') {
             const body = document.getElementById('chatBody');
             const div = document.createElement('div');
-            div.className = tipo === 'bot' ?
-                'bg-white p-4 rounded-2xl max-w-[85%]' :
-                'bg-[#3f2a1f] text-white p-4 rounded-2xl max-w-[85%] ml-auto';
-            div.textContent = texto;
+            
+            if(tipo === 'bot') {
+                div.className = 'bg-white text-[#3f2a1f] p-4 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] border border-gray-100 flex gap-3 transform transition-all translate-y-4 opacity-0';
+                div.innerHTML = `<div class="text-xl mt-1 text-[#d4aa6d]"><i class="fas fa-robot"></i></div><div>${texto}</div>`;
+            } else {
+                div.className = 'bg-[#3f2a1f] text-white p-4 rounded-2xl rounded-tr-none max-w-[85%] ml-auto shadow-md transform transition-all translate-y-4 opacity-0';
+                div.innerHTML = `<div>${texto}</div>`;
+            }
+            
             body.appendChild(div);
-            body.scrollTop = body.scrollHeight;
+            
+            // Animação de entrada da mensagem
+            setTimeout(() => {
+                div.classList.remove('translate-y-4', 'opacity-0');
+            }, 50);
+
+            // Auto-scroll para baixo suave
+            setTimeout(() => {
+                body.scrollTo({ top: body.scrollHeight, behavior: 'smooth' });
+            }, 100);
         }
 
         function selecionarProduto(btn) {
             produtoSelecionado = btn.getAttribute('data-produto');
-            adicionarMensagem(`Quero informações sobre ${produtoSelecionado}`, 'user');
+            adicionarMensagem(`Gostaria de saber mais sobre <strong>${produtoSelecionado}</strong>`, 'user');
 
+            // Feedback visual no botão clicado
+            const botoes = btn.parentElement.querySelectorAll('button');
+            botoes.forEach(b => b.classList.remove('bg-[#d4aa6d]', 'text-white', 'border-[#d4aa6d]'));
+            btn.classList.add('bg-[#d4aa6d]', 'text-white', 'border-[#d4aa6d]');
+
+            // Simulando o tempo de digitação do bot
             setTimeout(() => {
-                adicionarMensagem(`Excelente escolha! Nossos ${produtoSelecionado} são feitos com madeira de lei selecionada e acabamento premium.`);
+                adicionarMensagem(`Excelente escolha! Nossos <strong>${produtoSelecionado}</strong> são campeões de vendas. Feitos com madeira selecionada e acabamento premium.`);
                 setTimeout(() => {
-                    adicionarMensagem("Deseja que eu encaminhe seu pedido de orçamento diretamente para o WhatsApp?");
-                }, 1200);
-            }, 900);
+                    adicionarMensagem("Deseja que eu encaminhe seu orçamento direto para o WhatsApp do nosso especialista?");
+                }, 1500);
+            }, 1000);
         }
 
         function finalizarAtendimento() {
             if (!produtoSelecionado) produtoSelecionado = "um dos nossos produtos";
-
-            adicionarMensagem("Encaminhando seu pedido para o atendimento humano...", 'bot');
+            adicionarMensagem("Redirecionando para o WhatsApp em instantes...", 'bot');
 
             setTimeout(() => {
                 toggleChat();
-                const mensagem = `Olá! Vim pelo chat do site JR ARTES e quero orçamento de ${produtoSelecionado}.`;
+                const mensagem = `Olá! Vim pelo chat do site JR ARTES e quero um orçamento para: ${produtoSelecionado}.`;
                 abrirWhatsApp(mensagem);
-            }, 1400);
+            }, 1500);
         }
 
-        // === CARROSSEL SLIDE ===
+        // --- SISTEMA DE CARROSSEL AVANÇADO (COM AUTOPLAY) ---
         let currentSlide = 0;
         const totalSlides = 14;
+        let slideInterval;
+        const carousel = document.getElementById('carouselSlides');
+        const indicatorsContainer = document.getElementById('carouselIndicators');
+
+        // Cria os pontinhos (indicadores)
+        for(let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = `w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${i === 0 ? 'bg-[#3f2a1f] w-6' : 'bg-gray-300'}`;
+            dot.onclick = () => goToSlide(i);
+            indicatorsContainer.appendChild(dot);
+        }
+
+        function updateIndicators() {
+            const dots = indicatorsContainer.children;
+            for(let i = 0; i < dots.length; i++) {
+                if(i === currentSlide) {
+                    dots[i].className = 'w-6 h-2 rounded-full transition-all duration-300 cursor-pointer bg-[#3f2a1f]';
+                } else {
+                    dots[i].className = 'w-2 h-2 rounded-full transition-all duration-300 cursor-pointer bg-gray-300';
+                }
+            }
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateIndicators();
+            resetAutoSlide();
+        }
 
         function nextSlide() {
             currentSlide = (currentSlide + 1) % totalSlides;
-            document.getElementById('carouselSlides').style.transform = `translateX(-${currentSlide * 100}%)`;
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateIndicators();
         }
 
         function prevSlide() {
             currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            document.getElementById('carouselSlides').style.transform = `translateX(-${currentSlide * 100}%)`;
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateIndicators();
         }
 
+        function startAutoSlide() {
+            slideInterval = setInterval(nextSlide, 3500); // Passa a imagem a cada 3.5 segundos
+        }
+
+        function resetAutoSlide() {
+            clearInterval(slideInterval);
+            startAutoSlide();
+        }
+
+        // --- INICIALIZAÇÃO GERAL ---
         window.onload = () => {
-            initTailwind();
-            console.log('%c✅ JR ARTES - Site 100% FIXO NO MOBILE (sem rolagem lateral) carregado com sucesso!', 'color:#d4aa6d; font-weight:700; font-size:15px');
+            initScrollReveal(); // Dispara logo ao carregar para mostrar os elementos visíveis
+            startAutoSlide(); // Inicia o carrossel automático
+            console.log('%c✅ JR ARTES Premium Carregado!', 'color:#d4aa6d; font-weight:700; font-size:16px; background:#3f2a1f; padding:5px 10px; border-radius:5px;');
         };
     </script>
 </body>
-
 </html>
