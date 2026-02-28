@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JR ARTES em Madeiras • Monte Carmelo MG</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
+         :root {
+            --madeira: #3f2a1f;
+            --dourado: #d4aa6d;
+        }
+        
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            max-width: 100vw;
+            overflow-x: hidden !important;
+            box-sizing: border-box;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            overflow-x: hidden !important;
+        }
+        
+        .titulo-madeira {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(63, 42, 31, 0.85), rgba(63, 42, 31, 0.85)), url('https://iili.io/qq39dIs.png') center/cover no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .produto-card {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .produto-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px -12px rgb(63 42 31 / 0.4);
+        }
+        
+        .chat-modal {
+            animation: slideUp 0.4s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .container-fixo {
+            width: 100% !important;
+            max-width: 1280px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+        }
+        
+        iframe {
+            max-width: 100% !important;
+            width: 100% !important;
+        }
+        /* MELHORIA FORTE PARA MOBILE */
+        
+        @media (max-width: 640px) {
+            .hero {
+                min-height: 100vh;
+                background-attachment: scroll;
+                padding-top: 70px;
+            }
+            .titulo-madeira {
+                font-size: 2.4rem !important;
+                line-height: 1.05 !important;
+            }
+            .container-fixo {
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+            .produto-card {
+                padding: 28px 20px !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#f5e8d3] text-[#3f2a1f]">
+
+    <!-- NAVBAR - APENAS 1 BOTÃO -->
+    <nav class="bg-[#3f2a1f] text-white py-5 sticky top-0 z-50 shadow-2xl">
+        <div class="container-fixo flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="https://iili.io/qq2y471.png" alt="JR ARTES" class="h-12">
+                <span class="text-3xl font-bold titulo-madeira tracking-widest">JR ARTES</span>
+            </div>
+
+            <button onclick="abrirWhatsApp('Olá! Quero fazer um orçamento!')" class="bg-[#d4aa6d] hover:bg-white hover:text-[#3f2a1f] font-bold px-8 py-3 rounded-3xl flex items-center gap-3 text-sm transition-all">
+                <i class="fab fa-whatsapp text-2xl"></i>
+                <span>WHATSAPP</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container-fixo grid md:grid-cols-2 gap-10 items-center">
+            <div class="flex justify-center">
+                <img src="https://iili.io/qq2y471.png" alt="JR ARTES" class="w-72 md:w-[420px]">
+            </div>
+
+            <div class="text-white text-center md:text-left">
+                <div class="inline-block bg-white/20 text-sm font-bold px-8 py-3 rounded-3xl tracking-widest mb-6">
+                    OFERTA ESPECIAL
+                </div>
+
+                <div onclick="abrirWhatsApp('Quero a oferta dos Bancos Rústicos a partir de R$ 49,90!')" class="titulo-madeira text-5xl md:text-7xl font-bold leading-none cursor-pointer hover:text-[#d4aa6d] transition">
+                    BANCOS RÚSTICOS
+                </div>
+
+                <div onclick="abrirWhatsApp('Quero a oferta dos Bancos Rústicos a partir de R$ 49,90!')" class="text-5xl md:text-7xl font-bold text-[#d4aa6d] mt-3 cursor-pointer">
+                    A PARTIR DE R$ 49,90
+                </div>
+
+                <button onclick="abrirWhatsApp('Olá! Quero meu orçamento agora!')" class="mt-12 bg-[#d4aa6d] hover:bg-white hover:text-[#3f2a1f] text-[#3f2a1f] font-bold text-2xl px-12 py-6 rounded-3xl shadow-xl">
+                    FAÇA SEU ORÇAMENTO
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUTOS -->
+    <section id="produtos" class="py-20 bg-white">
+        <div class="container-fixo">
+            <div class="text-center mb-12">
+                <span class="bg-[#3f2a1f] text-[#d4aa6d] text-xs tracking-widest font-bold px-6 py-2 rounded-full">CLIQUE PARA ORÇAMENTO</span>
+                <h2 class="titulo-madeira text-5xl md:text-6xl font-bold mt-4">Nossos Produtos em Madeira</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div onclick="abrirWhatsApp('Quero orçamento de Mesas Normais')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
+                    <h3 class="text-4xl font-bold titulo-madeira">MESAS NORMAIS</h3>
+                </div>
+                <div onclick="abrirWhatsApp('Quero orçamento de Mesas Dobráveis')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
+                    <h3 class="text-4xl font-bold titulo-madeira">MESAS DOBRÁVEIS</h3>
+                </div>
+                <div onclick="abrirWhatsApp('Quero orçamento de Cadeiras')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
+                    <h3 class="text-4xl font-bold titulo-madeira">CADEIRAS</h3>
+                </div>
+                <div onclick="abrirWhatsApp('Quero orçamento de Bancos Rústicos')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
+                    <h3 class="text-4xl font-bold titulo-madeira">BANCOS RÚSTICOS</h3>
+                </div>
+                <div onclick="abrirWhatsApp('Quero orçamento de Bancos de Jardim Suspensos')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
+                    <h3 class="text-4xl font-bold titulo-madeira">BANCOS DE JARDIM SUSPENSOS</h3>
+                </div>
+                <div onclick="abrirWhatsApp('Quero orçamento de Cavalinho de Madeira')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
+                    <h3 class="text-4xl font-bold titulo-madeira">CAVALINHO DE MADEIRA</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO -->
+    <section id="local" class="py-20 bg-[#3f2a1f] text-white">
+        <div class="container-fixo text-center">
+            <h2 class="titulo-madeira text-5xl font-bold mb-6">NOSSA OFICINA</h2>
+            <p class="text-3xl">Monte Carmelo - MG</p>
+            <p class="text-2xl text-[#d4aa6d] mt-2">Rua João Casado, 183 • Santo Agostinho</p>
+            <p class="text-3xl mt-8 font-bold">(34) 99100-1778</p>
+
+            <div class="mt-12">
+                <iframe width="100%" height="420" src="https://www.google.com/maps?q=Rua+João+Casado+183,+Santo+Agostinho,+Monte+Carmelo+-+MG&output=embed" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAT SUPER INTELIGENTE -->
+    <button onclick="toggleChat()" class="fixed bottom-6 left-6 bg-[#3f2a1f] text-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-2xl z-50 hover:bg-[#d4aa6d] hover:text-[#3f2a1f] transition-all">
+        <i class="fas fa-comments text-3xl"></i>
+    </button>
+
+    <div id="chatModal" class="hidden fixed inset-0 bg-black/70 z-[100] flex items-end md:items-center justify-center">
+        <div class="chat-modal bg-white w-full max-w-md h-[85vh] md:h-[620px] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col">
+            <div class="bg-[#3f2a1f] text-white p-5 rounded-t-3xl flex justify-between items-center">
+                <div>
+                    <p class="font-bold text-lg">JR ARTES</p>
+                    <p class="text-xs text-[#d4aa6d]">Atendimento Profissional</p>
+                </div>
+                <button onclick="toggleChat()" class="text-3xl leading-none">×</button>
+            </div>
+
+            <div id="chatBody" class="flex-1 p-5 overflow-y-auto bg-gray-50 space-y-4 text-sm">
+                <div class="bg-white p-4 rounded-2xl max-w-[85%]">
+                    Olá! Seja bem-vindo à JR ARTES em Madeiras.<br> Sou o assistente virtual. Como posso ajudar você hoje?
+                </div>
+            </div>
+
+            <div class="p-5 border-t bg-white">
+                <p class="text-xs uppercase tracking-widest text-gray-500 mb-3">Escolha o produto desejado:</p>
+                <div class="grid grid-cols-2 gap-3 text-sm">
+                    <button onclick="selecionarProduto(this)" data-produto="Mesas Normais" class="border border-gray-300 hover:border-[#3f2a1f] p-3 rounded-2xl text-left transition">Mesas Normais</button>
+                    <button onclick="selecionarProduto(this)" data-produto="Mesas Dobráveis" class="border border-gray-300 hover:border-[#3f2a1f] p-3 rounded-2xl text-left transition">Mesas Dobráveis</button>
+                    <button onclick="selecionarProduto(this)" data-produto="Cadeiras" class="border border-gray-300 hover:border-[#3f2a1f] p-3 rounded-2xl text-left transition">Cadeiras</button>
+                    <button onclick="selecionarProduto(this)" data-produto="Bancos Rústicos" class="border border-gray-300 hover:border-[#3f2a1f] p-3 rounded-2xl text-left transition">Bancos Rústicos</button>
+                    <button onclick="selecionarProduto(this)" data-produto="Bancos de Jardim Suspensos" class="border border-gray-300 hover:border-[#3f2a1f] p-3 rounded-2xl text-left transition">Bancos de Jardim Suspensos</button>
+                    <button onclick="selecionarProduto(this)" data-produto="Cavalinho de Madeira" class="border border-gray-300 hover:border-[#3f2a1f] p-3 rounded-2xl text-left transition">Cavalinho de Madeira</button>
+                </div>
+
+                <button onclick="finalizarAtendimento()" class="mt-6 w-full bg-[#3f2a1f] text-white py-4 rounded-2xl font-medium">
+                    Falar com Atendente no WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHATSAPP FLUTUANTE -->
+    <button onclick="abrirWhatsApp('Olá! Vim pelo site e quero meu orçamento.')" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-2xl z-50 hover:scale-110 transition">
+        <i class="fab fa-whatsapp text-4xl"></i>
+    </button>
+
+    <footer class="bg-[#3f2a1f] text-white py-12 text-center">
+        <p class="titulo-madeira text-2xl">JR ARTES em Madeiras</p>
+        <p class="mt-2 text-sm opacity-75">Rua João Casado, 183 - Santo Agostinho • Monte Carmelo - MG</p>
+    </footer>
+
+    <script>
+        function initTailwind() {
+            tailwind.config = {
+                content: ["*"]
+            };
+        }
+
+        let produtoSelecionado = "";
+
+        function abrirWhatsApp(texto = "Olá! Quero fazer um orçamento.") {
+            const numero = "5534991001778";
+            window.open(`https://wa.me/${numero}?text=${encodeURIComponent(texto)}`, "_blank");
+        }
+
+        function toggleChat() {
+            const modal = document.getElementById('chatModal');
+            modal.classList.toggle('hidden');
+        }
+
+        function adicionarMensagem(texto, tipo = 'bot') {
+            const body = document.getElementById('chatBody');
+            const div = document.createElement('div');
+            div.className = tipo === 'bot' ?
+                'bg-white p-4 rounded-2xl max-w-[85%]' :
+                'bg-[#3f2a1f] text-white p-4 rounded-2xl max-w-[85%] ml-auto';
+            div.textContent = texto;
+            body.appendChild(div);
+            body.scrollTop = body.scrollHeight;
+        }
+
+        function selecionarProduto(btn) {
+            produtoSelecionado = btn.getAttribute('data-produto');
+            adicionarMensagem(`Quero informações sobre ${produtoSelecionado}`, 'user');
+
+            setTimeout(() => {
+                adicionarMensagem(`Excelente escolha! Nossos ${produtoSelecionado} são feitos com madeira de lei selecionada e acabamento premium.`);
+                setTimeout(() => {
+                    adicionarMensagem("Deseja que eu encaminhe seu pedido de orçamento diretamente para o WhatsApp?");
+                }, 1200);
+            }, 900);
+        }
+
+        function finalizarAtendimento() {
+            if (!produtoSelecionado) produtoSelecionado = "um dos nossos produtos";
+
+            adicionarMensagem("Encaminhando seu pedido para o atendimento humano...", 'bot');
+
+            setTimeout(() => {
+                toggleChat();
+                const mensagem = `Olá! Vim pelo chat do site JR ARTES e quero orçamento de ${produtoSelecionado}.`;
+                abrirWhatsApp(mensagem);
+            }, 1400);
+        }
+
+        window.onload = () => {
+            initTailwind();
+            console.log('%c✅ JR ARTES - Site 100% FIXO NO MOBILE (sem rolagem lateral) carregado com sucesso!', 'color:#d4aa6d; font-weight:700; font-size:15px');
+        };
+    </script>
+</body>
+
+</html>
