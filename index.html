@@ -85,11 +85,13 @@
             max-width: 100% !important;
             width: 100% !important;
         }
-        
-        
+
+        /* CARROSSEL SLIDE */
         #carouselSlides {
             transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
+        
+        /* MELHORIA FORTE PARA MOBILE */
         
         @media (max-width: 640px) {
             .hero {
@@ -142,12 +144,12 @@
                 </div>
 
                 <div onclick="abrirWhatsApp('Quero a oferta dos Bancos Rústicos a partir de R$ 49,90!')" class="titulo-madeira text-5xl md:text-7xl font-bold leading-none cursor-pointer hover:text-[#d4aa6d] transition">
-                    BANCOS RÚSTICOS499
+                    BANCOS RÚSTICOS
                 </div>
 
                 <div onclick="abrirWhatsApp('Quero a oferta dos Bancos Rústicos a partir de R$ 49,90!')" class="text-5xl md:text-7xl font-bold text-[#d4aa6d] mt-3 cursor-pointer">
-                    A PARTIR DE R$ 49,90499
-                </div>499
+                    A PARTIR DE R$ 49,90
+                </div>
 
                 <button onclick="abrirWhatsApp('Olá! Quero meu orçamento agora!')" class="mt-12 bg-[#d4aa6d] hover:bg-white hover:text-[#3f2a1f] text-[#3f2a1f] font-bold text-2xl px-12 py-6 rounded-3xl shadow-xl">
                     FAÇA SEU ORÇAMENTO
@@ -197,8 +199,10 @@
                 <p class="mt-4 text-xl font-bold">Na sua medida? Faça o orçamento agora!</p>
                 <p class="mt-6 text-[#d4aa6d] text-lg">Outros tipos de madeira → consulte via WhatsApp</p>
                 <p class="mt-8 text-2xl font-bold flex items-center justify-center gap-3">
-                    <span class="text-4xl">🚚</span> ENTREGAMOS EM TODO MONTE CARMELO - MG
+                    <span class="text-4xl">🚚</span> 
+                    ENTREGAMOS EM TODO MONTE CARMELO - MG
                 </p>
+            </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- 1 -->
@@ -238,27 +242,9 @@
                 <div onclick="abrirWhatsApp('Quero orçamento de Bancos Rústicos - Pequeno R$40 / Médio R$50 / Alto R$80 em Madeira Pinho (na minha medida)')" class="produto-card bg-[#3f2a1f] text-white p-9 rounded-3xl cursor-pointer">
                     <h3 class="text-4xl font-bold titulo-madeira">BANCOS RÚSTICOS</h3>
                     <div class="mt-8 pt-8 border-t border-white/30 grid grid-cols-3 gap-3 text-center text-sm">
-                        <div>
-                            <p class="font-bold text-[#d4aa6d]">R$ 40</p>
-                            <
-                            p class="opacity-75 text-xs">Pequeno</p>
-                            
-                        
-                        </div
-                            >
-                            
-                        
-                        <div>
-                            
-                            
-                        
-                            <p class="font-bold text-[#d4aa6d]">R$ 50</p>
-                            <p class="opacity-75 text-xs">Médio</p>
-                        </div>
-                        <div>
-                            <p class="font-bold text-[#d4aa6d]">R$ 80</p>
-                            <p class="opacity-75 text-xs">Alto</p>
-                        </div>
+                        <div><p class="font-bold text-[#d4aa6d]">R$ 40</p><p class="opacity-75 text-xs">Pequeno</p></div>
+                        <div><p class="font-bold text-[#d4aa6d]">R$ 50</p><p class="opacity-75 text-xs">Médio</p></div>
+                        <div><p class="font-bold text-[#d4aa6d]">R$ 80</p><p class="opacity-75 text-xs">Alto</p></div>
                     </div>
                 </div>
 
@@ -337,13 +323,15 @@
     <!-- GALERIA SLIDE (novo modelo - passa pros lados) -->
     <section class="py-20 bg-[#f5e8d3]">
         <div class="container-fixo">
-            <div class="text-center mb-12">lass="bg-[#3f2a1f] text-[#d4aa6d] text-xs tracking-widest font-bold px-6 py-2 rounded-full">ITENS À VENDA</span>
+            <div class="text-center mb-12">
+                <span class="bg-[#3f2a1f] text-[#d4aa6d] text-xs tracking-widest font-bold px-6 py-2 rounded-full">ITENS À VENDA</span>
                 <h2 class="titulo-madeira text-5xl md:text-6xl font-bold mt-4">GALERIA DE IMAGENS</h2>
             </div>
 
             <div class="relative max-w-5xl mx-auto">
                 <!-- SETA ESQUERDA -->
-                <button onclick="prevSlide()" class="absolute -left-6 top-1/2 -translate-y-1/2 bg-white shadow-2xl hover:bg-[#d4aa6d] hover:text-white text-[#3f2a1f] w-14 h-14 flex items-center justify-center rounded-2xl z-20 transition-all text-3xl">
+                <button onclick="prevSlide()" 
+                        class="absolute -left-6 top-1/2 -translate-y-1/2 bg-white shadow-2xl hover:bg-[#d4aa6d] hover:text-white text-[#3f2a1f] w-14 h-14 flex items-center justify-center rounded-2xl z-20 transition-all text-3xl">
                     <i class="fas fa-chevron-left"></i>
                 </button>
 
@@ -363,12 +351,14 @@
                         <div class="flex-none w-full"><img src="https://iili.io/qqFOUZb.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
                         <div class="flex-none w-full"><img src="https://iili.io/qqFeIl2.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
                         <div class="flex-none w-full"><img src="https://iili.io/qqFeVHP.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
-                        <div class="flex-none <div class="flex-none w-full"><img src="https://iili.io/qqFetg2.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFe4bn.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
+                        <div class="flex-none w-full"><img src="https://iili.io/qqFetg2.jpg" class="w-full h-auto object-cover aspect-square" alt="JR ARTES"></div>
                     </div>
                 </div>
 
                 <!-- SETA DIREITA -->
-                <button onclick="nextSlide()" class="absolute -right-6 top-1/2 -translate-y-1/2 bg-white shadow-2xl hover:bg-[#d4aa6d] hover:text-white text-[#3f2a1f] w-14 h-14 flex items-center justify-center rounded-2xl z-20 transition-all text-3xl">
+                <button onclick="nextSlide()" 
+                        class="absolute -right-6 top-1/2 -translate-y-1/2 bg-white shadow-2xl hover:bg-[#d4aa6d] hover:text-white text-[#3f2a1f] w-14 h-14 flex items-center justify-center rounded-2xl z-20 transition-all text-3xl">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
