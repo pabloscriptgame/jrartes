@@ -667,7 +667,7 @@
                     </div>
                 </div>
 
-                <button onclick="nextSlide(); resetAutoSlide();" class="absolute -right-5 md:-right-8 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur shadow-[0_10px_20px_rgba(0,0,0,0.15)] hover:bg-[#d4aa6d] hover:text-white text-[#3f2a1f] w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full z-20 transition-all duration-300 text-xl md:text-2xl opacity-80 group-hover:opacity-100 hover:scale-110 border border-gray-100"><i class="fas fa-chevron-right"></i></button>
+                <button onclick="nextSlide(); resetAutoSlide();" class="absolute -right-5 md:-right-8 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur shadow-[0_10px_20px_rgba(0,0,0,0.15)] hover:bg-[#d4aa6d] hover:text-[#3f2a1f] w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full z-20 transition-all duration-300 text-xl md:text-2xl opacity-80 group-hover:opacity-100 hover:scale-110 border border-gray-100"><i class="fas fa-chevron-right"></i></button>
 
                 <div class="flex justify-center gap-2 mt-6" id="carouselIndicators"></div>
             </div>
@@ -693,9 +693,10 @@
 
     <!-- MODAL ORÇAMENTO SOB MEDIDA -->
     <div id="modalOrcamento" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[110] flex items-center justify-center p-4 transition-all">
-        <div class="orcamento-modal bg-white w-full max-w-lg rounded-3xl shadow-2xl flex flex-col overflow-hidden relative border border-[#d4aa6d]/30">
-            <!-- Header Modal -->
-            <div class="bg-[#3f2a1f] text-white p-6 relative">
+        <!-- MODIFICADO: flex flex-col e max-h-[90vh] para respeitar limites da tela -->
+        <div class="orcamento-modal bg-white w-full max-w-lg max-h-[90vh] md:max-h-[95vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden relative border border-[#d4aa6d]/30">
+            <!-- Header Modal - MODIFICADO: flex-shrink-0 -->
+            <div class="bg-[#3f2a1f] text-white p-6 relative flex-shrink-0">
                 <button onclick="toggleModalOrcamento()" class="absolute top-4 right-4 text-white hover:text-[#d4aa6d] text-2xl transition-colors">
                     <i class="fas fa-times"></i>
                 </button>
@@ -705,8 +706,8 @@
                 <p class="text-sm text-gray-300 mt-2">Informe os tamanhos (em centímetros) para receber o valor exato no WhatsApp.</p>
             </div>
 
-            <!-- Body Modal Formulario -->
-            <div class="p-6 bg-[#fdfaf5]">
+            <!-- Body Modal Formulario - MODIFICADO: overflow-y-auto e flex-1 para barra de rolagem -->
+            <div class="p-6 bg-[#fdfaf5] overflow-y-auto flex-1">
                 <div class="space-y-4">
                     <div>
                         <label class="block text-sm font-bold text-[#3f2a1f] mb-1">Qual móvel você deseja?</label>
@@ -745,7 +746,7 @@
 
                 <div class="mt-6 flex flex-col gap-3">
                     <div class="bg-[#d4aa6d]/10 border border-[#d4aa6d] p-3 rounded-xl flex items-center gap-3">
-                        <i class="fas fa-info-circle text-[#d4aa6d] text-xl"></i>
+                        <i class="fas fa-info-circle text-[#d4aa6d] text-xl flex-shrink-0"></i>
                         <p class="text-xs font-semibold text-[#3f2a1f]">Lembrando: Pagamento exclusivo via PIX ou Dinheiro. Todos os móveis com Garantia de 1 ano!</p>
                     </div>
 
@@ -765,9 +766,10 @@
     </button>
 
     <div id="chatModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-end md:items-center justify-center transition-opacity duration-300 p-0 md:p-4">
-        <div class="chat-modal bg-[#fdfaf5] w-full max-w-md h-[85vh] md:h-[700px] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-white/20">
-            <!-- HEADER CHAT -->
-            <div class="bg-gradient-to-r from-[#3f2a1f] to-[#2a1b14] text-white p-5 flex justify-between items-center shadow-md relative z-10">
+        <!-- MODIFICADO: h-full max-h-[90vh] e flex flex-col -->
+        <div class="chat-modal bg-[#fdfaf5] w-full max-w-md h-full max-h-[90vh] md:h-[700px] md:max-h-[95vh] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-white/20">
+            <!-- HEADER CHAT - flex-shrink-0 -->
+            <div class="bg-gradient-to-r from-[#3f2a1f] to-[#2a1b14] text-white p-5 flex justify-between items-center shadow-md relative z-10 flex-shrink-0">
                 <div class="flex items-center gap-3">
                     <div class="relative">
                         <img src="https://iili.io/qq2y471.png" alt="JR ARTES" class="w-12 h-12 rounded-full bg-white p-1 object-contain">
@@ -793,8 +795,8 @@
                 </div>
             </div>
 
-            <!-- FOOTER CHAT -->
-            <div class="p-5 bg-white border-t shadow-[0_-10px_20px_rgba(0,0,0,0.03)] relative z-10 max-h-[300px] overflow-y-auto">
+            <!-- FOOTER CHAT - flex-shrink-0 -->
+            <div class="p-5 bg-white border-t shadow-[0_-10px_20px_rgba(0,0,0,0.03)] relative z-10 flex-shrink-0 max-h-[50vh] overflow-y-auto">
                 <p class="text-[11px] uppercase tracking-widest text-gray-400 font-bold mb-3 flex items-center gap-2">
                     <i class="fas fa-lightbulb"></i> Perguntas rápidas:
                 </p>
